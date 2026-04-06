@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LinksSWVA — Southwest Virginia</title>
+<meta name="description" content="Regional coverage of Southwest Virginia — the NRV, the Blue Ridge, the coalfields, and the communities in between. Local life, local business, and the people building something here." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#2d4a1e;--forest2:#3d6428;--forest-light:#5a8a3c;
+  --copper:#8b4513;--copper2:#a0522d;--copper-light:#c47a45;
+  --blue:#2a4a6b;--blue-light:#3d6e9e;
+  --cream:#f7f2ea;--cream2:#ede8dc;--cream3:#e3d9c8;
+  --rule:#c5b49e;--muted:#8a7a68;--faint:#b0a090;
+  --text:#1c1510;
+  --sans:'Barlow',sans-serif;--condensed:'Barlow Condensed',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+
+header{background:var(--forest);border-bottom:4px solid var(--forest2);}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.brand-name{font-family:var(--condensed);font-size:2rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:#fff;line-height:1;}
+.brand-name em{color:var(--copper-light);font-style:normal;}
+.brand-sub{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.2rem;}
+.header-loc{text-align:right;font-family:var(--condensed);font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);line-height:1.7;}
+nav{display:flex;align-items:center;padding:0;overflow-x:auto;}
+nav a{font-family:var(--condensed);font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.65);padding:0.65rem 1.4rem;border-right:1px solid rgba(255,255,255,0.08);transition:all 0.2s;white-space:nowrap;}
+nav a:hover{background:rgba(255,255,255,0.07);color:#fff;}
+.nav-toggle{display:none;background:none;border:none;color:rgba(255,255,255,0.65);padding:0.65rem 1.4rem;cursor:pointer;font-family:var(--condensed);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;}
+@media(max-width:760px){
+  .header-top{padding:0.85rem 1.5rem;flex-wrap:wrap;}
+  .header-loc{display:none;}
+  .nav-toggle{display:block;}
+  nav{display:none;flex-direction:column;}
+  nav.open{display:flex;}
+  nav a{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);width:100%;}
+}
+
+.hero{background:linear-gradient(160deg,var(--forest) 0%,#1a3010 60%,var(--blue) 100%);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 60%,rgba(139,69,19,0.12) 0%,transparent 60%);}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.hero-kicker{font-family:var(--condensed);font-size:0.68rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper-light);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-kicker::before{content:'';width:20px;height:1px;background:var(--copper-light);}
+.hero h1{font-family:var(--condensed);font-size:clamp(2.8rem,7vw,5rem);font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:1rem;}
+.hero h1 em{color:var(--copper-light);font-style:normal;}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,0.7);line-height:1.8;max-width:580px;margin-bottom:2.5rem;}
+.btn-forest{display:inline-block;background:var(--forest-light);color:#fff;font-family:var(--condensed);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.85rem 1.75rem;border:2px solid rgba(255,255,255,0.2);transition:background 0.2s;margin:0.25rem;}
+.btn-forest:hover{background:var(--forest2);}
+.btn-ghost{display:inline-block;background:transparent;color:rgba(255,255,255,0.8);font-family:var(--condensed);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.85rem 1.75rem;border:2px solid rgba(255,255,255,0.2);transition:border-color 0.2s;margin:0.25rem;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);}
+
+.ticker{background:var(--forest2);padding:0.6rem 2.5rem;display:flex;align-items:center;gap:1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);}
+.ticker-label{font-family:var(--condensed);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;background:rgba(0,0,0,0.2);padding:0.2rem 0.75rem;flex-shrink:0;}
+.ticker-items{font-family:var(--condensed);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);white-space:nowrap;}
+
+.main{max-width:1060px;margin:0 auto;padding:3rem 2.5rem;}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:0.75rem;border-bottom:3px solid var(--text);}
+.section-title{font-family:var(--condensed);font-size:1.4rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);}
+
+.region-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem;}
+.region-text p{font-size:0.975rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;}
+.region-text p strong{color:var(--text);}
+.region-map{background:var(--forest);padding:2rem;color:#fff;}
+.region-map h3{font-family:var(--condensed);font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.15);}
+.county-group{margin-bottom:1rem;}
+.county-label{font-family:var(--condensed);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper-light);margin-bottom:0.4rem;}
+.county-list{font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.8;}
+
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-bottom:4rem;}
+.pillar{background:var(--cream);padding:1.75rem;border-top:3px solid var(--forest);}
+.pillar-icon{font-size:1.5rem;margin-bottom:0.75rem;display:block;}
+.pillar h3{font-family:var(--condensed);font-size:1rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.4rem;}
+.pillar p{font-size:0.875rem;color:var(--muted);line-height:1.65;}
+
+.network-band{background:var(--cream2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:3rem 2.5rem;}
+.network-inner{max-width:1060px;margin:0 auto;}
+.network-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;}
+.net-card{background:var(--cream);border:1px solid var(--rule);border-left:3px solid var(--forest);padding:1.25rem;}
+.net-tag{font-family:var(--condensed);font-size:0.55rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--forest-light);margin-bottom:0.3rem;display:block;}
+.net-card h3{font-family:var(--condensed);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;}
+.net-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+.coming-band{background:var(--forest);padding:4rem 2.5rem;text-align:center;border-top:4px solid var(--copper);}
+.coming-inner{max-width:580px;margin:0 auto;}
+.coming-band h2{font-family:var(--condensed);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:#fff;margin-bottom:0.75rem;}
+.coming-band p{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:2rem;}
+
+.site-footer{background:var(--text);border-top:3px solid var(--copper);padding:2rem 2.5rem;}
+.footer-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-brand{font-family:var(--condensed);font-size:1.1rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#fff;}
+.footer-brand em{color:var(--copper-light);font-style:normal;}
+.footer-copy{font-family:var(--condensed);font-size:0.55rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.6s,transform 0.6s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:860px){
+  .region-grid{grid-template-columns:1fr;gap:2rem;}
+  .pillars-grid,.network-grid{grid-template-columns:1fr 1fr;}
+  .main{padding:2.5rem 1.5rem;}
+  .hero{padding:3.5rem 1.5rem 3rem;}
+  .network-band,.coming-band{padding:3rem 1.5rem;}
+  .site-footer{padding:1.75rem 1.5rem;}
+  .footer-inner{flex-direction:column;text-align:center;}
+}
+@media(max-width:520px){.pillars-grid,.network-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div>
+      <div class="brand-name"><em>Links</em>SWVA</div>
+      <div class="brand-sub">Southwest Virginia</div>
+    </div>
+    <button class="nav-toggle" id="navToggle">Menu</button>
+    <div class="header-loc">Southwest Virginia<br>NRV · Blue Ridge · Highlands</div>
+  </div>
+  <nav id="mainNav">
+    <a href="#region">The Region</a>
+    <a href="#pillars">What We Cover</a>
+    <a href="#network">Our Network</a>
+    <a href="https://linksnrv.com" target="_blank" rel="noopener">LinksNRV →</a>
+    <a href="https://linkspulaski.com" target="_blank" rel="noopener">LinksPulaski →</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Regional Coverage · Southwest Virginia</div>
+    <h1>Southwest Virginia Is More Than <em>People Think</em></h1>
+    <p class="hero-sub">From the New River Valley to the Blue Ridge to the Virginia Highlands — Southwest Virginia is a region of extraordinary character, independent communities, and people who are building something worth paying attention to.</p>
+    <div>
+      <a href="#region" class="btn-forest">The Region</a>
+      <a href="#network" class="btn-ghost">Our Network</a>
+    </div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-label">SWVA</div>
+  <div class="ticker-items">New River Valley · Blue Ridge · Virginia Highlands · Wythe · Carroll · Patrick · Roanoke · Craig · Mercer WV · NRV+</div>
+</div>
+
+<div class="main">
+  <div class="section-header reveal">
+    <div class="section-title">The Region</div>
+  </div>
+  <div class="region-grid reveal" id="region">
+    <div class="region-text">
+      <p>Southwest Virginia doesn't get the attention it deserves. The national conversation moves fast and tends to overlook places that aren't major metros. But the communities here — from Pulaski to Galax to Bluefield — have stories worth telling and people worth knowing.</p>
+      <p>LinksSWVA is the broadest view in the LINKS community network — a regional lens covering the New River Valley and the surrounding counties that form the broader Southwest Virginia landscape. <strong>Same values as LinksPulaski and LinksNRV, wider geographic scope.</strong></p>
+      <p>The region has genuine assets: mountain landscapes, strong agricultural roots, manufacturing heritage, growing tech presence through Virginia Tech, and communities that have learned how to do more with less. That story deserves to be told honestly and well.</p>
+      <p>Written from Pulaski, Virginia — at the center of it all.</p>
+    </div>
+    <div class="region-map">
+      <h3>Service Area</h3>
+      <div class="county-group">
+        <div class="county-label">Core NRV</div>
+        <div class="county-list">Pulaski County · Giles County<br>Floyd County · Montgomery County<br>City of Radford</div>
+      </div>
+      <div class="county-group">
+        <div class="county-label">NRV+ Extended</div>
+        <div class="county-list">Wythe County · Carroll County<br>Patrick County · Roanoke County<br>Craig County · Mercer County, WV</div>
+      </div>
+      <div class="county-group" style="margin-bottom:0;">
+        <div class="county-label">Broader SWVA</div>
+        <div class="county-list">Grayson · Smyth · Washington<br>Scott · Lee · Wise · Dickenson<br>Buchanan · Russell · Tazewell</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header reveal" id="pillars">
+    <div class="section-title">What We Cover</div>
+  </div>
+  <div class="pillars-grid reveal">
+    <div class="pillar">
+      <span class="pillar-icon">🏪</span>
+      <h3>Local Business</h3>
+      <p>Independent businesses, Main Streets, and entrepreneurs across Southwest Virginia who are building something worth supporting.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🌾</span>
+      <h3>Agriculture & Land</h3>
+      <p>Farm-to-table, local food systems, agricultural heritage, and the land that defines so much of what Southwest Virginia is.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🏔️</span>
+      <h3>Tourism & Outdoors</h3>
+      <p>The trails, rivers, parks, and destinations that make Southwest Virginia a region worth visiting — and worth protecting.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🏘️</span>
+      <h3>Community Life</h3>
+      <p>Events, traditions, civic life, and the everyday moments that hold small communities together across the region.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">⚡</span>
+      <h3>Economic Development</h3>
+      <p>What's growing, what's changing, and what opportunities exist across Southwest Virginia for people willing to invest here.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🎵</span>
+      <h3>Arts & Culture</h3>
+      <p>Music, art, heritage, and the creative life of a region with deep Appalachian roots and a growing contemporary culture.</p>
+    </div>
+  </div>
+</div>
+
+<div class="network-band" id="network">
+  <div class="network-inner">
+    <div class="section-header">
+      <div class="section-title">The LINKS Community Network</div>
+    </div>
+    <div class="network-grid reveal">
+      <div class="net-card">
+        <span class="net-tag">Hyperlocal</span>
+        <h3>linkspulaski.com</h3>
+        <p>Zoomed all the way in on Pulaski — Main Street, Calfee Park, local business, and civic life in one town.</p>
+      </div>
+      <div class="net-card">
+        <span class="net-tag">NRV Region</span>
+        <h3>linksnrv.com</h3>
+        <p>Local life across the New River Valley — Mom & Pop stores, farm-to-table, restaurants, and community.</p>
+      </div>
+      <div class="net-card">
+        <span class="net-tag">Civic Writing</span>
+        <h3>callmelink.org</h3>
+        <p>Essays on community, politics, and showing up — written from Pulaski with a view of the whole region.</p>
+      </div>
+      <div class="net-card">
+        <span class="net-tag">IT Services</span>
+        <h3>nrvmanagedit.com</h3>
+        <p>Managed IT for NRV small businesses. The engine that funds the broader mission.</p>
+      </div>
+      <div class="net-card">
+        <span class="net-tag">The Hub</span>
+        <h3>benlinkous.com</h3>
+        <p>The personal site connecting all 22 properties — the story behind the ecosystem.</p>
+      </div>
+      <div class="net-card">
+        <span class="net-tag">Boutique</span>
+        <h3>alysons.boutique</h3>
+        <p>Curated local makers, artisans, and NRV vendors. Coming soon.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="coming-band">
+  <div class="coming-inner">
+    <h2>Stories Coming Soon</h2>
+    <p>Regional coverage is being built out. Follow Call Me Link on Substack for the first pieces — Southwest Virginia stories will be published there as they're written.</p>
+    <a href="https://substack.com/@callmelink" target="_blank" rel="noopener" class="btn-forest">Follow on Substack</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><em>Links</em>SWVA</div>
+    <div class="footer-copy">© <span id="yr"></span> Ben Linkous · Pulaski, Virginia · Southwest Virginia</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('navToggle').addEventListener('click',function(){
+  const n=document.getElementById('mainNav');
+  n.classList.toggle('open');
+  this.textContent=n.classList.contains('open')?'Close':'Menu';
+});
+const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
